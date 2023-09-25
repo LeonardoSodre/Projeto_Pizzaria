@@ -13,15 +13,15 @@ public class Pedido{
         Total = 0.0;
 
     }
-
+/*
     public void AdicionarPizza(Pizza pizza){
         Pizzas.add(pizza);
         Total += pizza.Valor;
     }
-
+*/
 
    
-    public decimal calcularTotal(){
+   /* public decimal calcularTotal(){
         decimal total=0;
         
         foreach(var pizza in Pizzas){
@@ -39,5 +39,5 @@ public class Pedido{
         }
         Console.WriteLine($"Total do Pedido: R${calcularTotal()}");
     }
-
+*/
 }

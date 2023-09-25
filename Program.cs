@@ -6,12 +6,11 @@ using System.Linq;
  List<Pizza> listaPizzas = new List<Pizza>();
  List<Pedido> listaPedidos = new List<Pedido>();
  
-    static void Main(string[] args)
-    {
+ 
 
-        Console.WriteLine("********************************");
-        Console.WriteLine(" BEM VINDO AO PROJETO PIZZARIA");
-        Console.WriteLine(" ESCOLHA UMA OPÇÃO\n\n");
+    Console.WriteLine("********************************");
+    Console.WriteLine(" BEM VINDO AO PROJETO PIZZARIA");
+    Console.WriteLine(" ESCOLHA UMA OPÇÃO\n\n");
 
         while (true)
         {
@@ -29,7 +28,7 @@ using System.Linq;
                     listarPizza();
                 break;
                 case 3:
-                     criarPedido();
+                    criarPedido();
                 break;
                 case 4:
                      Console.WriteLine("Entrou no 4");
@@ -44,9 +43,9 @@ using System.Linq;
             }
 
         }
-    }
 
-   static void addPizza()
+
+    void addPizza()
     {
          Console.WriteLine("**********************************");
          Console.WriteLine("Você escolheu adicionar uma pizza!! \n");
@@ -58,7 +57,7 @@ using System.Linq;
             var sabores = Console.ReadLine();
 
             Console.WriteLine("Digite o valor da pizza no formato 00,00 ");
-            var valor = decimal.Parse(Console.ReadLine());
+            var valor = double.Parse(Console.ReadLine());
 
             var pizza = new Pizza(nome, sabores, valor);
 
@@ -68,8 +67,7 @@ using System.Linq;
         
     }
 
-
-   static void listarPizza()
+   void listarPizza()
     {
          if (listaPizzas.Count == 0){
             Console.WriteLine("\nNenhuma Pizza adicionada!!\n");
@@ -84,26 +82,33 @@ using System.Linq;
     }
 
 
-     static void criarPedido() {
-        Console.WriteLine("Digite o nome do Cliente: ");
-        var nome = Console.ReadLine();
+   void criarPedido() 
+    {
+    /*    if (listaPizzas.Count == 0){
+            Console.WriteLine("\nNenhuma Pizza adicionada!!\n");
+            return;*/
+        
+    Console.WriteLine("Digite o nome do Cliente: ");
+    var nome = Console.ReadLine();
 
-        Console.WriteLine("Digite o telefone do Cliente: ");
-        var telefone = Console.ReadLine();
+    Console.WriteLine("Digite o telefone do Cliente: ");
+    var telefone = Console.ReadLine();
 
-        Pedido pedido = new Pedido(telefone);
-    
-
+    Pedido pedido = new Pedido(telefone);
+    }
+/*
     while(true){
         listarPizzas();
         Console.WriteLine("Digite o nome da pizza que deseja: (ou 0 para sair):  ");
         string pizzaEscolhida = Console.ReadLine();
 
         if(pizzaEscolhida == "0"){
-            break;
-        }
+            break;    
            
     }   
 
 }
 
+*/
+    
+ 
