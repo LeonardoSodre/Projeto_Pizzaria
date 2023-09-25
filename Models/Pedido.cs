@@ -1,13 +1,24 @@
+
 public class Pedido{
    
    public string Nome {get; set;}
    public string Telefone {get; set;}
    public List<Pizza> Pizzas { get; set; }
+   public double Total { get; private set; }
 
   
-     public Pedido(){
+     public Pedido(string telefoneCliente){
+        Telefone = telefoneCliente;
         Pizzas = new List<Pizza>();
+        Total = 0.0;
+
     }
+
+    public void AdicionarPizza(Pizza pizza){
+        Pizzas.add(pizza);
+        Total += pizza.Valor;
+    }
+
 
    
     public decimal calcularTotal(){
@@ -24,7 +35,7 @@ public class Pedido{
         Console.WriteLine($"Telefone do cliente: {Telefone}");
         Console.WriteLine("Pizzas do Pedido: ");
         foreach(var pizza in Pizzas){
-            Console.WriteLine($"pizza");
+            Console.WriteLine($"{pizza.Nome} - R${pizza.Valor}");
         }
         Console.WriteLine($"Total do Pedido: R${calcularTotal()}");
     }
