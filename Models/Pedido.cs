@@ -7,22 +7,25 @@ public class Pedido{
    public double Total { get; private set; }
 
   
-     public Pedido(string telefoneCliente){
+     public Pedido(string telefoneCliente)
+     {
         Telefone = telefoneCliente;
         Pizzas = new List<Pizza>();
         Total = 0.0;
 
     }
-/*
-    public void AdicionarPizza(Pizza pizza){
-        Pizzas.add(pizza);
+
+    public void AdicionarPizza(Pizza pizza)
+    {
+        Pizzas.Add(pizza);
         Total += pizza.Valor;
     }
-*/
+
 
    
-   /* public decimal calcularTotal(){
-        decimal total=0;
+   public double calcularTotal()
+   {
+        double total=0; 
         
         foreach(var pizza in Pizzas){
             total += pizza.Valor;
@@ -31,7 +34,8 @@ public class Pedido{
     }
 
 
-    public void mostrarDetalhes(){
+    public void mostrarDetalhes()
+    {
         Console.WriteLine($"Telefone do cliente: {Telefone}");
         Console.WriteLine("Pizzas do Pedido: ");
         foreach(var pizza in Pizzas){
@@ -39,5 +43,5 @@ public class Pedido{
         }
         Console.WriteLine($"Total do Pedido: R${calcularTotal()}");
     }
-*/
+
 }

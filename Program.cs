@@ -6,8 +6,6 @@ using System.Linq;
  List<Pizza> listaPizzas = new List<Pizza>();
  List<Pedido> listaPedidos = new List<Pedido>();
  
- 
-
     Console.WriteLine("********************************");
     Console.WriteLine(" BEM VINDO AO PROJETO PIZZARIA");
     Console.WriteLine(" ESCOLHA UMA OPÇÃO\n\n");
@@ -31,7 +29,7 @@ using System.Linq;
                     criarPedido();
                 break;
                 case 4:
-                     Console.WriteLine("Entrou no 4");
+                     VisualizarDetalhesDoPedido();
                 break;
                 case 5:
                      Environment.Exit(0);
@@ -84,31 +82,62 @@ using System.Linq;
 
    void criarPedido() 
     {
-    /*    if (listaPizzas.Count == 0){
+      if (listaPizzas.Count == 0){
             Console.WriteLine("\nNenhuma Pizza adicionada!!\n");
-            return;*/
-        
-    Console.WriteLine("Digite o nome do Cliente: ");
-    var nome = Console.ReadLine();
+            return;
+      }else{
+        Console.WriteLine("Digite o nome do Cliente: ");
+        var nome = Console.ReadLine();
 
-    Console.WriteLine("Digite o telefone do Cliente: ");
-    var telefone = Console.ReadLine();
+        Console.WriteLine("Digite o telefone do Cliente: ");
+        var telefone = Console.ReadLine();
 
-    Pedido pedido = new Pedido(telefone);
+        Pedido pedido = new Pedido(telefone);
+      
+
+        while(true)
+        {
+            listarPizza();
+            Console.WriteLine("Digite o nome da pizza que deseja: (ou 0 para sair):  ");
+            string pizzaEscolhida = Console.ReadLine();
+
+            if(pizzaEscolhida == "0")
+                break;    
+          
+            Pizza pizzaSelecionada = listaPizzas.Find(p => p.Nome == pizzaEscolhida);
+            if (pizzaSelecionada != null)
+            {
+                pedido.AdicionarPizza(pizzaSelecionada);
+                
+            }
+            else
+            {
+                Console.WriteLine("Pizza não encontrada.");  
+                break;  
+            }
+            listaPedidos.Add(pedido);
+            Console.WriteLine("\nPedido criado com Sucesso!");
+         }   
+      }
     }
-/*
-    while(true){
-        listarPizzas();
-        Console.WriteLine("Digite o nome da pizza que deseja: (ou 0 para sair):  ");
-        string pizzaEscolhida = Console.ReadLine();
 
-        if(pizzaEscolhida == "0"){
-            break;    
+
+void VisualizarDetalhesDoPedido()
+    {
+        Console.Write("Digite o telefone do cliente do pedido: ");
+        string telefone = Console.ReadLine();
+
+        Pedido pedido = listaPedidos.Find(p => p.Telefone == telefone);
+
+        if (pedido != null)
+        {
+             Console.WriteLine("Pedido não encontrado.");
+        }
+        else
+        {
            
-    }   
-
-}
-
-*/
-    
+            pedido.mostrarDetalhes();
+        }
+    }
+ 
  
